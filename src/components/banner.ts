@@ -11,7 +11,7 @@ export const banner = () => {
   const close = queryElement<HTMLButtonElement>(`[${attr}="close"]`, component);
   if (!close) return;
 
-  if (localStorage.getItem('bannerClosed')) {
+  if (sessionStorage.getItem('bannerClosed')) {
     closeBanner(component);
     return;
   }
@@ -20,6 +20,6 @@ export const banner = () => {
 
   function closeBanner(component: HTMLDivElement) {
     component.style.display = 'none';
-    localStorage.setItem('bannerClosed', 'true');
+    sessionStorage.setItem('bannerClosed', 'true');
   }
 };
