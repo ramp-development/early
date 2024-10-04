@@ -1,6 +1,6 @@
 import { queryElement } from '$utils/queryElement';
 
-import type { Selectors } from './index.d';
+import type { Selectors } from '.';
 
 export const nav = (SELECTORS: Selectors) => {
   // eslint-disable-next-line no-console
