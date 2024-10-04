@@ -1,14 +1,15 @@
 import { queryElement } from '$utils/queryElement';
 
-export const banner = () => {
+import type { Selectors } from './index.d';
+
+export const banner = (SELECTORS: Selectors) => {
   // eslint-disable-next-line no-console
   console.log('banner');
 
-  const attr = 'data-banner';
-  const component = queryElement<HTMLDivElement>(`[${attr}="component"]`);
+  const component = queryElement<HTMLDivElement>(SELECTORS.BANNER.COMPONENT);
   if (!component) return;
 
-  const close = queryElement<HTMLButtonElement>(`[${attr}="close"]`, component);
+  const close = queryElement<HTMLButtonElement>(SELECTORS.BANNER.CLOSE, component);
   if (!close) return;
 
   if (sessionStorage.getItem('bannerClosed')) {
@@ -21,5 +22,8 @@ export const banner = () => {
   function closeBanner(component: HTMLDivElement) {
     component.style.display = 'none';
     sessionStorage.setItem('bannerClosed', 'true');
+
+    const bannerClosedEvent = new CustomEvent('bannerClosed');
+    document.dispatchEvent(bannerClosedEvent);
   }
 };
