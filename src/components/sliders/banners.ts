@@ -9,8 +9,6 @@ export const banners = () => {
   const component = queryElement<HTMLDivElement>('.banner-slider_component');
   if (!component) return;
 
-  console.log(component);
-
   const slider = new Splide(component, {
     type: 'loop',
     pagination: false,

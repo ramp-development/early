@@ -1,3 +1,4 @@
+import { buttons } from './buttons';
 import { navigation } from './navigation';
 import { sliders } from './sliders';
 
@@ -7,4 +8,5 @@ export const components = () => {
 
   navigation();
   sliders();
+  buttons();
 };
