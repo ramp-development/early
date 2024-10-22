@@ -14,7 +14,7 @@ export const testimonials = () => {
     pagination: false,
     arrows: false,
     autoplay: true,
-    interval: 5000,
+    interval: 8000,
   });
 
   slider.mount();
